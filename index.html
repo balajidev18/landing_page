@@ -15,83 +15,119 @@
   *{margin:0;padding:0;box-sizing:border-box}
   html{scroll-behavior:smooth}
   body{font-family:'Noto Sans',sans-serif;color:var(--ink);background:var(--cream);line-height:1.6;font-size:16px}
-  h1,h2,h3,.display{font-family:'Marcellus',serif;font-weight:400;line-height:1.2}
-  img{max-width:100%}
+  h1,h2,h3{font-family:'Marcellus',serif;font-weight:400;line-height:1.2}
   .wrap{max-width:1060px;margin:0 auto;padding:0 20px}
   .btn{display:inline-block;border:none;cursor:pointer;text-decoration:none;text-align:center;
-    font-family:'Noto Sans',sans-serif;font-weight:700;font-size:1rem;border-radius:8px;
-    padding:15px 26px;min-height:48px;transition:transform .12s ease, box-shadow .12s ease}
-  .btn:active{transform:scale(.98)}
+    font-family:inherit;font-weight:700;font-size:1rem;border-radius:8px;padding:15px 26px;min-height:48px}
   .btn-gold{background:linear-gradient(135deg,var(--gold-bright),var(--gold));color:var(--maroon-deep);box-shadow:0 4px 14px rgba(201,154,60,.35)}
   .btn-outline{background:transparent;color:#fff;border:2px solid rgba(255,255,255,.55)}
   .btn-green{background:var(--success);color:#fff}
   .eyebrow{letter-spacing:.14em;text-transform:uppercase;font-size:.75rem;font-weight:700;color:var(--gold);margin-bottom:10px}
   section{padding:56px 0}
   .sec-title{font-size:clamp(1.6rem,4.5vw,2.3rem);color:var(--maroon);margin-bottom:8px}
-  .sec-sub{color:var(--muted);max-width:560px;margin-bottom:28px}
+  .sec-sub{color:var(--muted);max-width:580px;margin-bottom:28px}
+
+  /* Anti-fraud ticker (IIFL pattern) */
+  .safety-bar{background:#241014;color:#e9d6b8;font-size:.78rem;text-align:center;padding:7px 14px}
+  .safety-bar strong{color:var(--gold-bright)}
 
   /* Header */
-  header{position:sticky;top:0;z-index:50;background:var(--maroon-deep);color:#fff;
-    box-shadow:0 2px 10px rgba(0,0,0,.25)}
+  header{position:sticky;top:0;z-index:50;background:var(--maroon-deep);color:#fff;box-shadow:0 2px 10px rgba(0,0,0,.25)}
   .nav{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:12px 0}
-  .logo{font-family:'Marcellus',serif;font-size:1.25rem;letter-spacing:.02em}
+  .logo{font-family:'Marcellus',serif;font-size:1.25rem}
   .logo span{color:var(--gold-bright)}
   .nav-right{display:flex;align-items:center;gap:14px}
   .nav-phone{color:#fff;text-decoration:none;font-weight:600;font-size:.95rem;white-space:nowrap}
+  .nav-repay{color:var(--gold-bright);text-decoration:none;font-size:.85rem;font-weight:600;white-space:nowrap}
   .nav .btn{padding:10px 18px;min-height:auto;font-size:.9rem}
 
+  /* Gold rate strip (Rupeek pattern) */
+  .rate-strip{background:#fdf3dd;border-bottom:1px solid var(--line);padding:9px 0;font-size:.88rem;color:#6b4e12}
+  .rate-strip .wrap{display:flex;align-items:center;justify-content:center;gap:8px;flex-wrap:wrap;text-align:center}
+  .rate-strip strong{color:var(--maroon);font-size:1rem}
+
   /* Hero */
-  .hero{background:
+  .hero{background-color:var(--maroon-deep);background-image:
     radial-gradient(900px 420px at 85% -10%, rgba(201,154,60,.28), transparent 60%),
     linear-gradient(160deg,var(--maroon-deep) 0%,var(--maroon) 70%);
-    color:#fff;padding:64px 0 56px;position:relative;overflow:hidden}
+    color:#fff;padding:56px 0 52px;position:relative}
   .hero::after{content:"";position:absolute;left:0;right:0;bottom:0;height:6px;
     background:linear-gradient(90deg,transparent,var(--gold),var(--gold-bright),var(--gold),transparent)}
-  .hero h1{font-size:clamp(2rem,6.5vw,3.4rem);max-width:640px}
-  .hero h1 em{font-style:normal;color:var(--gold-bright)}
-  .hero p.lead{margin:16px 0 26px;font-size:1.1rem;color:#f2e6d8;max-width:520px}
-  .hero-ctas{display:flex;gap:12px;flex-wrap:wrap}
+  .hero-grid{display:grid;gap:36px;grid-template-columns:1fr;align-items:center}
+  @media(min-width:880px){.hero-grid{grid-template-columns:1.2fr 1fr}}
   .rate-badge{display:inline-flex;align-items:baseline;gap:10px;background:rgba(255,255,255,.08);
-    border:1px solid rgba(230,184,85,.4);border-radius:10px;padding:10px 16px;margin-bottom:22px}
+    border:1px solid rgba(230,184,85,.4);border-radius:10px;padding:10px 16px;margin-bottom:20px}
   .rate-badge .num{font-family:'Marcellus',serif;font-size:1.9rem;color:var(--gold-bright)}
   .rate-badge .lbl{font-size:.85rem;color:#e9dccb}
-  .trust-chips{display:flex;flex-wrap:wrap;gap:8px 18px;margin-top:26px;font-size:.85rem;color:#eadfce}
-  .trust-chips span{display:flex;align-items:center;gap:7px}
-  .trust-chips svg{flex:none}
+  .hero h1{font-size:clamp(1.9rem,6vw,3.1rem);max-width:620px}
+  .hero h1 em{font-style:normal;color:var(--gold-bright)}
+  .hero p.lead{margin:16px 0 22px;font-size:1.08rem;color:#ffffff !important;background:transparent !important;max-width:520px;text-shadow:0 1px 2px rgba(0,0,0,.25)}
+  .hero .trust-chips, .hero .trust-chips span{color:#eadfce !important;background:transparent !important}
+  .trust-chips{display:flex;flex-wrap:wrap;gap:8px 18px;margin-top:22px;font-size:.85rem;color:#eadfce}
+
+  /* Quick capture card (Rupeek pattern) */
+  .quick-card{background:#fff;color:var(--ink);border-radius:16px;padding:26px;box-shadow:0 18px 50px rgba(0,0,0,.35)}
+  .quick-card h3{font-size:1.25rem;color:var(--maroon);margin-bottom:4px}
+  .quick-card .qc-sub{font-size:.88rem;color:var(--muted);margin-bottom:16px}
+  .qc-row{display:flex;gap:8px;margin-bottom:12px}
+  .qc-prefix{display:flex;align-items:center;padding:0 12px;background:var(--cream);
+    border:1px solid #d8ccb8;border-radius:8px;font-weight:700;color:var(--muted)}
+  .qc-row input{flex:1;min-width:0;padding:14px;border-radius:8px;border:1px solid #d8ccb8;
+    font-size:1.05rem;font-family:inherit;min-height:48px}
+  .qc-row input:focus{outline:3px solid var(--gold-bright);outline-offset:1px}
+  .quick-card .btn{width:100%}
+  .consent{display:flex;gap:9px;align-items:flex-start;font-size:.74rem;color:var(--muted);margin:12px 0 0;line-height:1.5}
+  .consent input{margin-top:3px;width:16px;height:16px;flex:none}
+  .qc-err{color:#b3261e;font-size:.8rem;margin-top:8px;display:none}
+  .qc-success{display:none;background:#e8f5ee;border:1px solid #bfe3cf;color:var(--success);
+    border-radius:10px;padding:14px;font-weight:600;margin-top:12px;font-size:.92rem}
+
+  /* Stats band (IIFL pattern) */
+  .stats-band{background:#fff;border-bottom:1px solid var(--line)}
+  .stats-band .wrap{display:grid;grid-template-columns:repeat(2,1fr);gap:1px;background:var(--line);padding:0}
+  @media(min-width:760px){.stats-band .wrap{grid-template-columns:repeat(4,1fr)}}
+  .stat{background:#fff;text-align:center;padding:24px 12px}
+  .stat .s-num{font-family:'Marcellus',serif;font-size:1.7rem;color:var(--maroon)}
+  .stat .s-lbl{font-size:.82rem;color:var(--muted)}
 
   /* Rates table */
   .table-card{background:#fff;border:1px solid var(--line);border-radius:14px;overflow:auto;box-shadow:0 6px 24px rgba(91,20,32,.06)}
   table{width:100%;border-collapse:collapse;min-width:620px}
   th,td{padding:16px 18px;text-align:left;border-bottom:1px solid var(--line)}
-  thead th{background:var(--maroon);color:#fff;font-family:'Noto Sans',sans-serif;font-size:.85rem;
-    text-transform:uppercase;letter-spacing:.06em;font-weight:700}
+  thead th{background:var(--maroon);color:#fff;font-size:.85rem;text-transform:uppercase;letter-spacing:.06em}
   tbody tr:last-child td{border-bottom:none}
   .scheme-name{font-family:'Marcellus',serif;font-size:1.15rem;color:var(--maroon)}
-  .flag{display:inline-block;background:linear-gradient(135deg,var(--gold-bright),var(--gold));
-    color:var(--maroon-deep);font-size:.68rem;font-weight:700;letter-spacing:.05em;text-transform:uppercase;
-    padding:3px 9px;border-radius:20px;margin-left:8px;vertical-align:middle}
+  .flag{display:inline-block;background:linear-gradient(135deg,var(--gold-bright),var(--gold));color:var(--maroon-deep);
+    font-size:.68rem;font-weight:700;letter-spacing:.05em;text-transform:uppercase;padding:3px 9px;border-radius:20px;margin-left:8px}
   .row-flag td{background:#fdf8ec}
   td .big{font-weight:700;font-size:1.05rem}
   td .per100{display:block;font-size:.8rem;color:var(--muted)}
   .table-note{font-size:.8rem;color:var(--muted);margin-top:12px}
 
+  /* Use cases (IIFL pattern) */
+  .uses{display:grid;gap:14px;grid-template-columns:repeat(2,1fr)}
+  @media(min-width:760px){.uses{grid-template-columns:repeat(4,1fr)}}
+  .use{background:#fff;border:1px solid var(--line);border-radius:12px;padding:20px;text-align:center}
+  .use .u-icon{font-size:1.7rem;margin-bottom:8px}
+  .use h3{font-size:1rem;color:var(--maroon);margin-bottom:4px}
+  .use p{font-size:.82rem;color:var(--muted)}
+
   /* Calculator */
-  .calc{background:linear-gradient(160deg,var(--maroon-deep),var(--maroon));color:#fff}
+  .calc{background-color:var(--maroon-deep);background-image:linear-gradient(160deg,var(--maroon-deep),var(--maroon));color:#fff}
   .calc .sec-title{color:#fff}
   .calc .sec-sub{color:#e9dccb}
-  .calc-grid{display:grid;gap:22px;grid-template-columns:1fr;align-items:start}
+  .calc-grid{display:grid;gap:22px;grid-template-columns:1fr}
   @media(min-width:820px){.calc-grid{grid-template-columns:1fr 1fr}}
   .calc-panel{background:rgba(255,255,255,.06);border:1px solid rgba(230,184,85,.3);border-radius:14px;padding:24px}
   .field{margin-bottom:18px}
   .field label{display:block;font-weight:600;font-size:.9rem;margin-bottom:7px;color:#f2e6d8}
   .field input,.field select{width:100%;padding:14px;border-radius:8px;border:1px solid rgba(255,255,255,.3);
-    background:rgba(255,255,255,.95);font-size:1.05rem;font-family:inherit;color:var(--ink);min-height:48px}
+    background:rgba(255,255,255,.95);font-size:1.05rem;font-family:inherit;min-height:48px;color:var(--ink)}
   .field input:focus,.field select:focus{outline:3px solid var(--gold-bright);outline-offset:1px}
   .calc-result{background:#fff;color:var(--ink);border-radius:14px;padding:26px;text-align:center}
-  .calc-result .cr-label{font-size:.85rem;text-transform:uppercase;letter-spacing:.1em;color:var(--muted);font-weight:700}
-  .calc-result .cr-amount{font-family:'Marcellus',serif;font-size:clamp(2.4rem,8vw,3.2rem);color:var(--maroon);margin:6px 0 2px}
-  .cr-row{display:flex;justify-content:space-between;gap:10px;border-top:1px dashed var(--line);
-    padding:12px 0 0;margin-top:14px;font-size:.95rem}
+  .cr-label{font-size:.85rem;text-transform:uppercase;letter-spacing:.1em;color:var(--muted);font-weight:700}
+  .cr-amount{font-family:'Marcellus',serif;font-size:clamp(2.4rem,8vw,3.2rem);color:var(--maroon);margin:6px 0 2px}
+  .cr-row{display:flex;justify-content:space-between;border-top:1px dashed var(--line);padding:12px 0 0;margin-top:14px;font-size:.95rem}
   .cr-row strong{color:var(--maroon)}
   .calc-result .btn{width:100%;margin-top:18px}
   .calc-note{font-size:.78rem;color:var(--muted);margin-top:12px}
@@ -100,34 +136,48 @@
   .steps{display:grid;gap:18px;grid-template-columns:1fr}
   @media(min-width:760px){.steps{grid-template-columns:repeat(4,1fr)}}
   .step{background:#fff;border:1px solid var(--line);border-radius:12px;padding:22px}
-  .step .s-time{display:inline-block;background:#fdf3dd;color:#8a6516;font-weight:700;font-size:.75rem;
-    padding:3px 10px;border-radius:20px;margin-bottom:12px}
+  .step .s-time{display:inline-block;background:#fdf3dd;color:#8a6516;font-weight:700;font-size:.75rem;padding:3px 10px;border-radius:20px;margin-bottom:12px}
   .step h3{font-size:1.1rem;color:var(--maroon);margin-bottom:6px}
   .step p{font-size:.92rem;color:var(--muted)}
 
-  /* Trust */
+  /* Trust + insurance */
   .trust-grid{display:grid;gap:16px;grid-template-columns:1fr}
   @media(min-width:700px){.trust-grid{grid-template-columns:1fr 1fr}}
   .trust-item{display:flex;gap:14px;background:#fff;border:1px solid var(--line);border-radius:12px;padding:20px}
   .trust-item .t-icon{flex:none;width:44px;height:44px;border-radius:10px;display:flex;align-items:center;justify-content:center;
-    background:linear-gradient(135deg,#fdf3dd,#f7e6bd)}
+    background:linear-gradient(135deg,#fdf3dd,#f7e6bd);font-size:1.3rem}
   .trust-item h3{font-size:1.05rem;color:var(--maroon);margin-bottom:4px}
   .trust-item p{font-size:.92rem;color:var(--muted)}
+  .insure-band{margin-top:22px;background:#fff;border:1px dashed var(--gold);border-radius:12px;
+    padding:18px 22px;display:flex;gap:14px;align-items:center;flex-wrap:wrap}
+  .insure-band .shield{font-size:1.8rem}
+  .insure-band p{font-size:.92rem;color:var(--muted)}
+  .insure-band strong{color:var(--maroon)}
 
-  /* Testimonials */
+  /* Testimonials with rating (Rupeek pattern) */
   .quotes{display:grid;gap:16px;grid-template-columns:1fr}
   @media(min-width:760px){.quotes{grid-template-columns:repeat(3,1fr)}}
   .quote{background:#fff;border:1px solid var(--line);border-left:4px solid var(--gold);border-radius:12px;padding:22px}
+  .stars{color:var(--gold);letter-spacing:2px;margin-bottom:8px;font-size:.9rem}
   .quote p{font-size:.95rem;margin-bottom:12px}
   .quote .who{font-weight:700;font-size:.85rem;color:var(--maroon)}
+  .quote .when{font-size:.75rem;color:var(--muted)}
 
   /* FAQ */
-  details{background:#fff;border:1px solid var(--line);border-radius:10px;margin-bottom:10px;overflow:hidden}
-  summary{cursor:pointer;padding:16px 18px;font-weight:600;list-style:none;display:flex;justify-content:space-between;gap:12px;align-items:center;min-height:48px}
+  details{background:#fff;border:1px solid var(--line);border-radius:10px;margin-bottom:10px}
+  summary{cursor:pointer;padding:16px 18px;font-weight:600;list-style:none;display:flex;justify-content:space-between;gap:12px;min-height:48px}
   summary::-webkit-details-marker{display:none}
-  summary::after{content:"+";font-size:1.4rem;color:var(--gold);flex:none;line-height:1}
+  summary::after{content:"+";font-size:1.4rem;color:var(--gold)}
   details[open] summary::after{content:"–"}
   details .a{padding:0 18px 16px;color:var(--muted);font-size:.95rem}
+
+  /* Support block (IIFL pattern) */
+  .support{display:grid;gap:14px;grid-template-columns:1fr}
+  @media(min-width:760px){.support{grid-template-columns:repeat(3,1fr)}}
+  .sup{background:#fff;border:1px solid var(--line);border-radius:12px;padding:22px;text-align:center}
+  .sup .su-icon{font-size:1.6rem;margin-bottom:8px}
+  .sup h3{font-size:1rem;color:var(--maroon);margin-bottom:4px}
+  .sup a{color:var(--maroon);font-weight:700;text-decoration:none}
 
   /* Lead form */
   .lead{background:#fff;border-top:1px solid var(--line)}
@@ -138,56 +188,83 @@
   .lead-form .field input,.lead-form .field select{background:#fff;border:1px solid #d8ccb8}
   .err{color:#b3261e;font-size:.8rem;margin-top:5px;display:none}
   .lead-form .btn{width:100%}
-  .form-success{display:none;background:#e8f5ee;border:1px solid #bfe3cf;color:var(--success);
-    border-radius:10px;padding:18px;font-weight:600;margin-top:14px}
-  .privacy{font-size:.78rem;color:var(--muted);margin-top:12px}
+  .form-success{display:none;background:#e8f5ee;border:1px solid #bfe3cf;color:var(--success);border-radius:10px;padding:18px;font-weight:600;margin-top:14px}
+  .hero-ctas{display:flex;gap:12px;flex-wrap:wrap}
 
-  /* Footer */
   footer{background:var(--maroon-deep);color:#d9c9b8;font-size:.85rem;padding:40px 0 110px}
   footer .f-title{font-family:'Marcellus',serif;color:#fff;font-size:1.1rem;margin-bottom:10px}
   footer p{margin-bottom:8px}
+  footer a{color:var(--gold-bright)}
   .disclaimer{border-top:1px solid rgba(255,255,255,.15);margin-top:20px;padding-top:16px;font-size:.78rem;color:#b7a591}
 
-  /* Sticky mobile bar */
-  .sticky-bar{position:fixed;bottom:0;left:0;right:0;z-index:60;display:flex;gap:1px;
-    box-shadow:0 -4px 16px rgba(0,0,0,.18)}
-  .sticky-bar a{flex:1;display:flex;align-items:center;justify-content:center;gap:8px;
-    padding:15px 10px;font-weight:700;font-size:.95rem;text-decoration:none;min-height:54px}
+  .sticky-bar{position:fixed;bottom:0;left:0;right:0;z-index:60;display:flex;box-shadow:0 -4px 16px rgba(0,0,0,.18)}
+  .sticky-bar a{flex:1;display:flex;align-items:center;justify-content:center;gap:8px;padding:15px 10px;font-weight:700;text-decoration:none;min-height:54px}
   .sb-call{background:var(--maroon);color:#fff}
   .sb-wa{background:var(--success);color:#fff}
   @media(min-width:820px){.sticky-bar{display:none} footer{padding-bottom:40px}}
-  @media (prefers-reduced-motion: reduce){html{scroll-behavior:auto}.btn{transition:none}}
+  @media (prefers-reduced-motion: reduce){html{scroll-behavior:auto}}
 </style>
 </head>
 <body>
+
+<div class="safety-bar"><strong>Stay safe:</strong> RAR Fincare never asks for advance fees, processing charges by UPI, or OTPs on phone. Pay only at our branches.</div>
 
 <header>
   <div class="wrap nav">
     <div class="logo">RAR <span>Fincare</span></div>
     <div class="nav-right">
-      <a class="nav-phone" href="tel:+919876543210" aria-label="Call RAR Fincare">📞 98765 43210</a>
+      <a class="nav-repay" href="tel:+919876543210">Repay Loan</a>
+      <a class="nav-phone" href="tel:+919876543210">📞 98765 43210</a>
       <a class="btn btn-gold" href="#apply">Apply Now</a>
     </div>
   </div>
 </header>
 
-<section class="hero">
+<div class="rate-strip">
   <div class="wrap">
-    <div class="rate-badge"><span class="num">₹6,250</span><span class="lbl">per gram of 22K gold</span></div>
-    <h1>Your gold stays safe.<br>Your cash arrives in <em>30 minutes.</em></h1>
-    <p class="lead">Walk into any RAR Fincare branch in Rajahmundry, Kakinada or Eluru with your gold jewellery. Walk out with cash or instant bank transfer — at just 12% per annum.</p>
-    <div class="hero-ctas">
-      <a class="btn btn-gold" href="#calculator">Check My Loan Amount</a>
-      <a class="btn btn-outline" href="https://wa.me/919876543210?text=Hi%2C%20I%20want%20a%20gold%20loan%20quote" target="_blank" rel="noopener">Talk on WhatsApp</a>
+    <span>🪙 Today's per-gram rate at our branches (<span id="rateDate"></span>):</span>
+    <strong>₹6,250 / gram (22K)</strong>
+    <span>· Updated daily as per market gold price</span>
+  </div>
+</div>
+
+<section class="hero">
+  <div class="wrap hero-grid">
+    <div>
+      <div class="rate-badge"><span class="num">₹6,250</span><span class="lbl">per gram of 22K gold</span></div>
+      <h1>Your gold stays safe.<br>Your cash arrives in <em>30 minutes.</em></h1>
+      <p class="lead">Walk into any RAR Fincare branch in Rajahmundry, Kakinada or Eluru with your gold jewellery. Walk out with cash or instant bank transfer — at just 12% per annum.</p>
+      <div class="trust-chips">
+        <span>✓ RBI Registered NBFC</span>
+        <span>✓ Insured Vault Storage</span>
+        <span>✓ Weighed In Front of You</span>
+        <span>✓ No Hidden Charges</span>
+      </div>
     </div>
-    <div class="trust-chips">
-      <span>✓ RBI Registered NBFC</span>
-      <span>✓ 3 Branches in Godavari Districts</span>
-      <span>✓ Insured Vault Storage</span>
-      <span>✓ Transparent Weighing In Front of You</span>
+    <div class="quick-card">
+      <h3>Get a call back in 30 minutes</h3>
+      <p class="qc-sub">Enter your mobile number — our branch manager will call with your exact eligible amount.</p>
+      <div class="qc-row">
+        <span class="qc-prefix">+91</span>
+        <input type="tel" id="qcMobile" inputmode="numeric" maxlength="10" placeholder="Your 10-digit mobile" aria-label="Mobile number">
+      </div>
+      <button class="btn btn-gold" id="qcBtn">Get Started Now</button>
+      <div class="qc-err" id="qcErr">Please enter a valid 10-digit mobile number and accept the consent.</div>
+      <label class="consent"><input type="checkbox" id="qcConsent" checked>
+        <span>I authorize RAR Fincare to contact me about my gold loan enquiry by call, SMS or WhatsApp, and I accept the Terms & Privacy Policy.</span></label>
+      <div class="qc-success" id="qcSuccess">✓ Thank you! Our branch manager will call you within 30 minutes (9 AM – 7 PM).</div>
     </div>
   </div>
 </section>
+
+<div class="stats-band">
+  <div class="wrap">
+    <div class="stat"><div class="s-num">{{CUSTOMER_COUNT}}+</div><div class="s-lbl">Happy customers*</div></div>
+    <div class="stat"><div class="s-num">{{YEARS_IN_BUSINESS}}+</div><div class="s-lbl">Years of trust</div></div>
+    <div class="stat"><div class="s-num">3</div><div class="s-lbl">Branches — Rajahmundry, Kakinada, Eluru</div></div>
+    <div class="stat"><div class="s-num">30 min</div><div class="s-lbl">Average disbursal time</div></div>
+  </div>
+</div>
 
 <section id="rates">
   <div class="wrap">
@@ -196,9 +273,7 @@
     <p class="sec-sub">Every charge is told to you in writing before you pledge. What we quote is what you pay.</p>
     <div class="table-card">
       <table>
-        <thead>
-          <tr><th>Scheme</th><th>Interest Rate</th><th>You Get (per gram, 22K)</th><th>Tenure</th></tr>
-        </thead>
+        <thead><tr><th>Scheme</th><th>Interest Rate</th><th>You Get (per gram, 22K)</th><th>Tenure</th></tr></thead>
         <tbody>
           <tr class="row-flag">
             <td><span class="scheme-name">Swarna Express</span><span class="flag">Most Popular</span></td>
@@ -219,6 +294,19 @@
   </div>
 </section>
 
+<section id="uses" style="padding-top:0">
+  <div class="wrap">
+    <p class="eyebrow">One Loan, Every Need</p>
+    <h2 class="sec-title">Whatever the reason, your gold is ready</h2>
+    <div class="uses">
+      <div class="use"><div class="u-icon">🎓</div><h3>Education</h3><p>College fees & admissions, paid on time</p></div>
+      <div class="use"><div class="u-icon">🏥</div><h3>Medical</h3><p>Emergency funds within the hour</p></div>
+      <div class="use"><div class="u-icon">🏪</div><h3>Business</h3><p>Stock, working capital & expansion</p></div>
+      <div class="use"><div class="u-icon">🌾</div><h3>Agriculture</h3><p>Seeds, inputs & harvest-time needs</p></div>
+    </div>
+  </div>
+</section>
+
 <section class="calc" id="calculator">
   <div class="wrap">
     <p class="eyebrow">Loan Calculator</p>
@@ -226,25 +314,12 @@
     <p class="sec-sub">Enter your jewellery weight. See your eligible amount instantly — before you even visit the branch.</p>
     <div class="calc-grid">
       <div class="calc-panel">
-        <div class="field">
-          <label for="gw">Gold weight (grams)</label>
-          <input type="number" id="gw" inputmode="decimal" min="1" max="5000" value="20" aria-describedby="calcnote">
-        </div>
-        <div class="field">
-          <label for="purity">Purity</label>
-          <select id="purity">
-            <option value="1">22 Karat (916)</option>
-            <option value="0.91">20 Karat</option>
-            <option value="0.82">18 Karat</option>
-          </select>
-        </div>
-        <div class="field">
-          <label for="scheme">Scheme</label>
-          <select id="scheme">
-            <option value="6250|12">Swarna Express — 12% p.a.</option>
-            <option value="5800|15">Swarna Plus — 15% p.a.</option>
-          </select>
-        </div>
+        <div class="field"><label for="gw">Gold weight (grams)</label>
+          <input type="number" id="gw" inputmode="decimal" min="1" max="5000" value="20"></div>
+        <div class="field"><label for="purity">Purity</label>
+          <select id="purity"><option value="1">22 Karat (916)</option><option value="0.91">20 Karat</option><option value="0.82">18 Karat</option></select></div>
+        <div class="field"><label for="scheme">Scheme</label>
+          <select id="scheme"><option value="6250|12">Swarna Express — 12% p.a.</option><option value="5800|15">Swarna Plus — 15% p.a.</option></select></div>
       </div>
       <div class="calc-result" aria-live="polite">
         <div class="cr-label">You are eligible for up to</div>
@@ -252,7 +327,7 @@
         <div class="cr-row"><span>Monthly interest</span><strong id="crInterest">₹1,250</strong></div>
         <div class="cr-row"><span>Rate</span><strong id="crRate">12% p.a.</strong></div>
         <a class="btn btn-gold" href="#apply">Get This Amount — Apply Now</a>
-        <p class="calc-note" id="calcnote">Indicative estimate. Final amount depends on branch valuation of your jewellery.</p>
+        <p class="calc-note">Indicative estimate. Final amount depends on branch valuation of your jewellery.</p>
       </div>
     </div>
   </div>
@@ -281,6 +356,10 @@
       <div class="trust-item"><div class="t-icon">⚖️</div><div><h3>Weighed in front of you</h3><p>Certified scales on the counter. You see the weight, the purity test, and the valuation sheet.</p></div></div>
       <div class="trust-item"><div class="t-icon">📄</div><div><h3>Everything in writing</h3><p>Rate, charges, and release process — printed and handed to you before you sign anything.</p></div></div>
     </div>
+    <div class="insure-band">
+      <span class="shield">🛡️</span>
+      <p><strong>100% insurance on your pledged gold</strong> — every ornament in our vault is covered under our policy with <strong>{{INSURER_NAME}}</strong>, from the moment it is sealed to the day you take it home.</p>
+    </div>
   </div>
 </section>
 
@@ -289,9 +368,9 @@
     <p class="eyebrow">Customer Stories</p>
     <h2 class="sec-title">Trusted across the Godavari districts</h2>
     <div class="quotes">
-      <div class="quote"><p>"My daughter's college fee was due on Monday. I pledged my bangles on Saturday morning and the money was in my account before lunch."</p><div class="who">Lakshmi, Rajahmundry</div></div>
-      <div class="quote"><p>"They weighed my chain in front of me and showed me the purity reading. I got a better per-gram rate than the shop next door."</p><div class="who">Suresh, Kakinada</div></div>
-      <div class="quote"><p>"When I released my jewellery, the seal was untouched, exactly as I saw it packed. That is why I come back every season for my business needs."</p><div class="who">Padma, Eluru</div></div>
+      <div class="quote"><div class="stars">★★★★★</div><p>"My daughter's college fee was due on Monday. I pledged my bangles on Saturday morning and the money was in my account before lunch."</p><div class="who">Lakshmi, Rajahmundry</div><div class="when">Education need · 22g pledged</div></div>
+      <div class="quote"><div class="stars">★★★★★</div><p>"They weighed my chain in front of me and showed me the purity reading. I got a better per-gram rate than the shop next door."</p><div class="who">Suresh, Kakinada</div><div class="when">Business need · 35g pledged</div></div>
+      <div class="quote"><div class="stars">★★★★★</div><p>"When I released my jewellery, the seal was untouched, exactly as I saw it packed. That is why I come back every season."</p><div class="who">Padma, Eluru</div><div class="when">Repeat customer · 4th loan</div></div>
     </div>
   </div>
 </section>
@@ -300,30 +379,24 @@
   <div class="wrap">
     <p class="eyebrow">Common Questions</p>
     <h2 class="sec-title">Everything you may want to ask</h2>
-    <details open>
-      <summary>Is my gold safe with RAR Fincare?</summary>
-      <div class="a">Yes. Your jewellery is sealed in a tamper-proof packet in front of you, insured, and stored in a secure vault. It is released back to you — with the seal intact — the moment you close the loan.</div>
-    </details>
-    <details>
-      <summary>What documents do I need?</summary>
-      <div class="a">Only your Aadhaar card and PAN card. No income proof, no salary slips, no guarantors.</div>
-    </details>
-    <details>
-      <summary>How is my jewellery valued?</summary>
-      <div class="a">On certified scales at the counter, in front of you, with an electronic purity check. You receive a printed valuation sheet showing the weight, purity, and eligible amount.</div>
-    </details>
-    <details>
-      <summary>Are there prepayment or hidden charges?</summary>
-      <div class="a">No prepayment charges — close your loan any day. Interest is charged only for the days you actually use the loan. All applicable charges are shown in writing before you sign.</div>
-    </details>
-    <details>
-      <summary>What happens if I can't repay on time?</summary>
-      <div class="a">We contact you well in advance and work out options — part payment, interest servicing, or renewal. Auction is always the last resort, done only after written notices as per RBI guidelines, and any surplus from auction is returned to you.</div>
-    </details>
-    <details>
-      <summary>Can I take the money to my bank account instead of cash?</summary>
-      <div class="a">Yes. Choose cash in hand or instant transfer to your bank account — whichever you prefer, in the same visit.</div>
-    </details>
+    <details open><summary>Is my gold safe with RAR Fincare?</summary><div class="a">Yes. Your jewellery is sealed in a tamper-proof packet in front of you, insured with {{INSURER_NAME}}, and stored in a secure vault. It is released back to you — with the seal intact — the moment you close the loan.</div></details>
+    <details><summary>What documents do I need?</summary><div class="a">Only your Aadhaar card and PAN card. No income proof, no salary slips, no guarantors, and no CIBIL score check.</div></details>
+    <details><summary>How is my jewellery valued?</summary><div class="a">On certified scales at the counter, in front of you, with an electronic purity check. You receive a printed valuation sheet showing the weight, purity, and eligible amount.</div></details>
+    <details><summary>Are there prepayment or hidden charges?</summary><div class="a">No prepayment charges — close your loan any day. Interest is charged only for the days you actually use the loan. All applicable charges are shown in writing before you sign.</div></details>
+    <details><summary>What happens if I can't repay on time?</summary><div class="a">We contact you well in advance and work out options — part payment, interest servicing, or renewal. Auction is always the last resort, done only after written notices as per RBI guidelines, and any surplus from auction is returned to you.</div></details>
+    <details><summary>Can I release only part of my jewellery?</summary><div class="a">Yes. Pay down part of the loan and take back specific ornaments while the rest continue under pledge — ask at the branch for part-release.</div></details>
+  </div>
+</section>
+
+<section id="support" style="padding-top:0">
+  <div class="wrap">
+    <p class="eyebrow">We're Here to Help</p>
+    <h2 class="sec-title">Talk to a real person, today</h2>
+    <div class="support">
+      <div class="sup"><div class="su-icon">📞</div><h3>Call us</h3><a href="tel:+919876543210">98765 43210</a><p style="font-size:.8rem;color:var(--muted)">9 AM – 7 PM, Mon–Sat</p></div>
+      <div class="sup"><div class="su-icon">💬</div><h3>WhatsApp</h3><a href="https://wa.me/919876543210?text=Hi%2C%20I%20want%20a%20gold%20loan%20quote" target="_blank" rel="noopener">Chat with us</a><p style="font-size:.8rem;color:var(--muted)">Replies within minutes</p></div>
+      <div class="sup"><div class="su-icon">📍</div><h3>Visit a branch</h3><a href="#apply">Rajahmundry · Kakinada · Eluru</a><p style="font-size:.8rem;color:var(--muted)">Walk-ins welcome</p></div>
+    </div>
   </div>
 </section>
 
@@ -332,39 +405,26 @@
     <div>
       <p class="eyebrow">Get Your Quote</p>
       <h2 class="sec-title">Our branch manager will call you in 30 minutes</h2>
-      <p class="sec-sub">Share your number and we'll tell you your exact eligible amount, reserve your visit slot, and answer every question — no obligation to pledge.</p>
-      <p style="font-weight:600;color:var(--maroon)">Prefer to talk right now?</p>
-      <div class="hero-ctas" style="margin-top:12px">
+      <p class="sec-sub">Share your details and we'll tell you your exact eligible amount, reserve your visit slot, and answer every question — no obligation to pledge.</p>
+      <div class="hero-ctas">
         <a class="btn btn-green" href="https://wa.me/919876543210?text=Hi%2C%20I%20want%20a%20gold%20loan%20quote" target="_blank" rel="noopener">WhatsApp Us</a>
         <a class="btn btn-gold" href="tel:+919876543210">Call 98765 43210</a>
       </div>
     </div>
     <form class="lead-form" id="leadForm" novalidate>
-      <div class="field">
-        <label for="fname">Your name</label>
-        <input type="text" id="fname" name="name" autocomplete="name" required>
-        <div class="err" id="errName">Please enter your name.</div>
-      </div>
-      <div class="field">
-        <label for="fmobile">Mobile number</label>
-        <input type="tel" id="fmobile" name="mobile" inputmode="numeric" maxlength="10" autocomplete="tel" placeholder="10-digit mobile" required>
-        <div class="err" id="errMobile">Please enter a valid 10-digit mobile number.</div>
-      </div>
-      <div class="field">
-        <label for="fweight">Approx. gold weight in grams (optional)</label>
-        <input type="number" id="fweight" name="weight" inputmode="decimal" min="1">
-      </div>
-      <div class="field">
-        <label for="fbranch">Nearest branch</label>
-        <select id="fbranch" name="branch">
-          <option>Rajahmundry</option>
-          <option>Kakinada</option>
-          <option>Eluru</option>
-        </select>
-      </div>
+      <div class="field"><label for="fname">Your name</label><input type="text" id="fname" autocomplete="name" required>
+        <div class="err" id="errName">Please enter your name.</div></div>
+      <div class="field"><label for="fmobile">Mobile number</label>
+        <input type="tel" id="fmobile" inputmode="numeric" maxlength="10" autocomplete="tel" placeholder="10-digit mobile" required>
+        <div class="err" id="errMobile">Please enter a valid 10-digit mobile number.</div></div>
+      <div class="field"><label for="fweight">Approx. gold weight in grams (optional)</label>
+        <input type="number" id="fweight" inputmode="decimal" min="1"></div>
+      <div class="field"><label for="fbranch">Nearest branch</label>
+        <select id="fbranch"><option>Rajahmundry</option><option>Kakinada</option><option>Eluru</option></select></div>
       <button type="submit" class="btn btn-gold">Get My Quote</button>
+      <label class="consent"><input type="checkbox" id="fConsent" checked>
+        <span>I authorize RAR Fincare to contact me about my gold loan enquiry by call, SMS or WhatsApp, and I accept the Terms & Privacy Policy.</span></label>
       <div class="form-success" id="formSuccess">✓ Thank you! Our branch manager will call you within 30 minutes (9 AM – 7 PM).</div>
-      <p class="privacy">Your details are used only to contact you about your gold loan enquiry. We never share your number.</p>
     </form>
   </div>
 </section>
@@ -373,11 +433,11 @@
   <div class="wrap">
     <div class="f-title">RAR Fincare</div>
     <p>Branches: Rajamahendravaram (Rajahmundry) · Kakinada · Eluru — Andhra Pradesh</p>
-    <p>Phone: <a href="tel:+919876543210" style="color:var(--gold-bright)">98765 43210</a> · WhatsApp: 98765 43210</p>
+    <p>Phone / WhatsApp: <a href="tel:+919876543210">98765 43210</a></p>
     <p>Registered Office: {{REGISTERED_OFFICE_ADDRESS}}</p>
-    <p>RBI Registration No: {{RBI_REG_NO}} · Grievance Officer: {{GRIEVANCE_CONTACT}}</p>
+    <p>RBI Registration No: {{RBI_REG_NO}} · Grievance Officer: {{GRIEVANCE_CONTACT}} · <a href="{{FAIR_PRACTICES_URL}}">Fair Practices Code</a></p>
     <div class="disclaimer">
-      Interest rates and per-gram rates are subject to change based on prevailing gold prices and company policy. Loans are sanctioned at the sole discretion of RAR Fincare and subject to valuation and KYC verification. Maximum loan-to-value as per RBI norms. In case of default, gold ornaments may be auctioned as per the terms of the loan agreement after due written notice.
+      *Customer count as on {{STAT_AS_ON_DATE}}. Interest rates and per-gram rates are subject to change based on prevailing gold prices and company policy. Loans are sanctioned at the sole discretion of RAR Fincare and subject to valuation and KYC verification. Maximum loan-to-value as per RBI norms. In case of default, gold ornaments may be auctioned as per the terms of the loan agreement after due written notice.
     </div>
   </div>
 </footer>
@@ -389,48 +449,49 @@
 
 <script>
 (function(){
-  var fmt = function(n){ return '₹' + Math.round(n).toLocaleString('en-IN'); };
-  var gw = document.getElementById('gw'),
-      purity = document.getElementById('purity'),
-      scheme = document.getElementById('scheme'),
-      crAmount = document.getElementById('crAmount'),
-      crInterest = document.getElementById('crInterest'),
-      crRate = document.getElementById('crRate');
+  // Today's date in the rate strip
+  var d=new Date();
+  document.getElementById('rateDate').textContent=d.toLocaleDateString('en-IN',{day:'numeric',month:'short',year:'numeric'});
 
+  var fmt=function(n){return '₹'+Math.round(n).toLocaleString('en-IN')};
+
+  // Calculator
+  var gw=document.getElementById('gw'),purity=document.getElementById('purity'),scheme=document.getElementById('scheme'),
+      crAmount=document.getElementById('crAmount'),crInterest=document.getElementById('crInterest'),crRate=document.getElementById('crRate');
   function calc(){
-    var w = parseFloat(gw.value) || 0;
-    var p = parseFloat(purity.value);
-    var parts = scheme.value.split('|');
-    var perGram = parseFloat(parts[0]), rate = parseFloat(parts[1]);
-    var amount = w * p * perGram;
-    var monthly = amount * (rate/100) / 12;
-    crAmount.textContent = fmt(amount);
-    crInterest.textContent = fmt(monthly);
-    crRate.textContent = rate + '% p.a.';
+    var parts=scheme.value.split('|');
+    var amount=(parseFloat(gw.value)||0)*parseFloat(purity.value)*parseFloat(parts[0]);
+    crAmount.textContent=fmt(amount);
+    crInterest.textContent=fmt(amount*(parseFloat(parts[1])/100)/12);
+    crRate.textContent=parts[1]+'% p.a.';
   }
-  [gw,purity,scheme].forEach(function(el){ el.addEventListener('input', calc); });
+  [gw,purity,scheme].forEach(function(el){el.addEventListener('input',calc)});
   calc();
 
-  // Lead form
-  var form = document.getElementById('leadForm');
-  form.addEventListener('submit', function(e){
+  // Hero quick capture
+  document.getElementById('qcBtn').addEventListener('click',function(){
+    var mob=document.getElementById('qcMobile').value.trim();
+    var ok=/^[6-9]\d{9}$/.test(mob)&&document.getElementById('qcConsent').checked;
+    document.getElementById('qcErr').style.display=ok?'none':'block';
+    if(!ok)return;
+    /* {{LEAD_ENDPOINT}} — POST {mobile: mob, source:'hero_quick'} */
+    document.getElementById('qcSuccess').style.display='block';
+    this.disabled=true;
+  });
+
+  // Full lead form
+  var form=document.getElementById('leadForm');
+  form.addEventListener('submit',function(e){
     e.preventDefault();
-    var name = document.getElementById('fname'),
-        mob = document.getElementById('fmobile'),
-        okName = name.value.trim().length >= 2,
-        okMob = /^[6-9]\d{9}$/.test(mob.value.trim());
-    document.getElementById('errName').style.display = okName ? 'none' : 'block';
-    document.getElementById('errMobile').style.display = okMob ? 'none' : 'block';
-    if(!(okName && okMob)) return;
-    /* {{LEAD_ENDPOINT}} — replace with your form endpoint / Power Automate HTTP trigger.
-       Example:
-       fetch('{{LEAD_ENDPOINT}}', {method:'POST', headers:{'Content-Type':'application/json'},
-         body: JSON.stringify({name:name.value, mobile:mob.value,
-           weight:document.getElementById('fweight').value,
-           branch:document.getElementById('fbranch').value})});
-    */
-    document.getElementById('formSuccess').style.display = 'block';
-    form.querySelector('button[type=submit]').disabled = true;
+    var okName=document.getElementById('fname').value.trim().length>=2,
+        okMob=/^[6-9]\d{9}$/.test(document.getElementById('fmobile').value.trim()),
+        okConsent=document.getElementById('fConsent').checked;
+    document.getElementById('errName').style.display=okName?'none':'block';
+    document.getElementById('errMobile').style.display=(okMob&&okConsent)?'none':'block';
+    if(!(okName&&okMob&&okConsent))return;
+    /* {{LEAD_ENDPOINT}} — POST full form payload */
+    document.getElementById('formSuccess').style.display='block';
+    form.querySelector('button[type=submit]').disabled=true;
   });
 })();
 </script>
